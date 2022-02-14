@@ -1,10 +1,10 @@
+
 const container = document.querySelector('.container');
 
 
 function createGrid() {
     for(let rows = 0; rows < 16; rows++) {
-        const rows = document.createElement('div');
-            
+            const rows = document.createElement('div');
             rows.classList.add('row');
             container.appendChild(rows);
 
@@ -16,6 +16,24 @@ function createGrid() {
         }
     }
 }
-
 createGrid();
+
+function draw(){
+    const cols = document.querySelectorAll('.col');
+    
+    for (let i = 0; i < cols.length; i++) {
+        cols[i].addEventListener('mouseover', () => {
+            cols[i].style.backgroundColor = "black"
+        })
+    }
+}
+
+draw();
+
+
+
+
+
+
+
 

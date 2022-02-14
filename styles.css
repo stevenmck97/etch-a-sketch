@@ -9,10 +9,6 @@
     width: 30px;
 }
 
-.col:hover {
-    background-color: black;
-}
-
 .row{
     padding: 0;
     margin: 0;
