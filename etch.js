@@ -18,17 +18,38 @@ function createGrid() {
 }
 createGrid();
 
-function draw(){
-    const cols = document.querySelectorAll('.col');
+// function draw(){
+//     const cols = document.querySelectorAll('.col');
     
-    for (let i = 0; i < cols.length; i++) {
-        cols[i].addEventListener('mouseover', () => {
-            cols[i].style.backgroundColor = "black"
+//     for (let i = 0; i < cols.length; i++) {
+//         cols[i].addEventListener('mouseover', () => {
+//             cols[i].style.backgroundColor = "black"
+//         })
+//     }
+// }
+
+function draw() {
+    const cols = document.querySelectorAll('.col');
+    cols.forEach((col) => {
+        col.addEventListener('mouseover', () => {
+            col.style.backgroundColor = "black"
         })
-    }
+    })
 }
 
 draw();
+
+function clearDrawing() {
+    const cols = document.querySelectorAll('.col');
+    const clearBtn = document.querySelector('#clearBtn')
+    cols.forEach((col) => {
+        clearBtn.addEventListener('click', () => {
+            col.style.backgroundColor = "white"
+        }) 
+    })
+}
+
+clearDrawing();
 
 
 
