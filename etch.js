@@ -55,15 +55,6 @@ function rainbowDraw() {
     return `rgb(${x}, ${y}, ${z})`  
 }
 
-function updateGrid() {
-    const cols = document.querySelectorAll('.col')
-    cols.forEach((col) => {
-        col.addEventListener('mouseover', () => {
-            col.style.backgroundColor = rainbowDraw()
-        })
-    })
-}
-
 function handleColor() {
     const rainbowBtn = document.querySelector('#rainbowBtn')
     const cols = document.querySelectorAll('.col')
