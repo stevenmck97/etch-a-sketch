@@ -10,8 +10,9 @@ colCount = 0;
 
 function size() {
    sizePrompt = prompt('What size would you like?');
-   deleteGrid()
-   createGrid(sizePrompt)
+   colCount = sizePrompt;
+   deleteGrid();
+   createGrid(colCount);
    
     
 }
@@ -76,7 +77,7 @@ function handleColor() {
         rainbowBtn.style.backgroundColor= 'transparent'
     }
     deleteGrid()
-    createGrid()
+    createGrid(colCount)
 }
 
 function clearDrawing() {
