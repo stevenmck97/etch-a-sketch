@@ -12,9 +12,7 @@ function size() {
    sizePrompt = prompt('What size would you like?');
    colCount = sizePrompt;
    deleteGrid();
-   createGrid(colCount);
-   
-    
+   createGrid(colCount); 
 }
 
 function createGrid(gridSize) {
@@ -23,6 +21,9 @@ function createGrid(gridSize) {
     } else {
         gridSize = 64
     }
+    console.log(gridSize)
+    console.log(colCount)
+
     for(let rows = 0; rows < gridSize; rows++) {
         const rows = document.createElement('div');
         rows.classList.add('row');
@@ -76,7 +77,7 @@ function handleColor() {
         rainbowCount-=1
         rainbowBtn.style.backgroundColor= 'transparent'
     }
-    deleteGrid()
+    // deleteGrid()
     createGrid(colCount)
 }
 
