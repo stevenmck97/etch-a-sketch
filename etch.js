@@ -8,8 +8,14 @@ function size() {
     
 }
 
+(function defaultGrid() {
+    createGrid(64);
+    draw();
+})();
+
+
+
 function createGrid(gridSize) {
-    
     for(let rows = 0; rows < gridSize; rows++) {
         const rows = document.createElement('div');
         rows.classList.add('row');
@@ -21,6 +27,8 @@ function createGrid(gridSize) {
             rows.appendChild(cols);
     }
 }};
+
+
 
 function deleteGrid() {
     const rows = document.querySelectorAll('.row')
