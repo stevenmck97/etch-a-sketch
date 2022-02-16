@@ -45,12 +45,9 @@ function draw() {
 
 function clearDrawing() {
     const cols = document.querySelectorAll('.col');
-    const clearBtn = document.querySelector('#clearBtn')
     cols.forEach((col) => {
-        clearBtn.addEventListener('click', () => {
             col.style.backgroundColor = "white"
-        }) 
-    })
+    }) 
 }
 
 
