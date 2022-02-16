@@ -1,32 +1,42 @@
-
 const container = document.querySelector('.container');
 
+// let size = () => {
+//     sizeBtn = document.querySelector('#sizeBtn')
+//     promptSize = prompt('what size?')
+//     // createGrid(promptSize)
+//     sizeBtn.addEventListener('click', createGrid(promptSize))
+// }
 
-function createGrid() {
-    for(let rows = 0; rows < 16; rows++) {
-            const rows = document.createElement('div');
-            rows.classList.add('row');
-            container.appendChild(rows);
+// size()
+function size() {
+   sizePrompt = prompt('What size would you like?');
+   createGrid(sizePrompt)
+   draw();
+    
+}
 
-            for(let cols = 0; cols < 16; cols++) {
-                const cols = document.createElement('div');
-                cols.classList.add('col')
-                // cols.textContent = 'cols';
-                rows.appendChild(cols);
-        }
+function createGrid(gridSize) {
+    
+    for(let rows = 0; rows < gridSize; rows++) {
+        const rows = document.createElement('div');
+        rows.classList.add('row');
+        container.appendChild(rows);
+
+        for(let cols = 0; cols < gridSize; cols++) {
+            const cols = document.createElement('div');
+            cols.classList.add('col')
+            // cols.textContent = 'cols';
+            rows.appendChild(cols);
     }
 }
-createGrid();
+}
 
-// function draw(){
-//     const cols = document.querySelectorAll('.col');
-    
-//     for (let i = 0; i < cols.length; i++) {
-//         cols[i].addEventListener('mouseover', () => {
-//             cols[i].style.backgroundColor = "black"
-//         })
-//     }
-// }
+
+
+
+
+
+
 
 function draw() {
     const cols = document.querySelectorAll('.col');
@@ -37,7 +47,7 @@ function draw() {
     })
 }
 
-draw();
+
 
 function clearDrawing() {
     const cols = document.querySelectorAll('.col');
@@ -49,7 +59,17 @@ function clearDrawing() {
     })
 }
 
-clearDrawing();
+
+
+// function draw(){
+//     const cols = document.querySelectorAll('.col');
+    
+//     for (let i = 0; i < cols.length; i++) {
+//         cols[i].addEventListener('click', () => {
+//             cols[i].style.backgroundColor = "black"
+//         })
+//     }
+// }
 
 
 
