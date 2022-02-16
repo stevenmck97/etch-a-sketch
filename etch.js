@@ -1,5 +1,7 @@
-const container = document.querySelector('.container');
 rainbowCount = 0;
+let color = 'black'
+
+const container = document.querySelector('.container');
 
 (function defaultGrid() {
     createGrid(64); 
@@ -27,7 +29,7 @@ function createGrid(gridSize) {
             cols.classList.add('col')
 
             cols.addEventListener('mouseover', () => {
-                cols.style.backgroundColor = "black"
+                cols.style.backgroundColor = color
             })
 
             rows.appendChild(cols);
@@ -70,7 +72,7 @@ function handleColor() {
     else if(rainbowCount===1){
         cols.forEach((col) => {
             col.addEventListener('mouseover', () => {
-                col.style.backgroundColor = 'black'
+                col.style.backgroundColor = color
             })
         })
         rainbowCount-=1
@@ -78,50 +80,16 @@ function handleColor() {
     }  
 }
 
+function setColor(newColor) {
+    color = newColor
+}
+const colorChoice = document.querySelector('#colorPicker')
+colorChoice.onchange = (e) => setColor(e.target.value)
+
 function clearDrawing() {
     const cols = document.querySelectorAll('.col');
     cols.forEach((col) => {
             col.style.backgroundColor = "white"
     }) 
 }
-
-//window.onload
-
-// function draw(){
-//     const cols = document.querySelectorAll('.col');
-    
-//     for (let i = 0; i < cols.length; i++) {
-//         cols[i].addEventListener('click', () => {
-//             cols[i].style.backgroundColor = "black"
-//         })
-//     }
-// }
-
-// function draw() {
-//     const cols = document.querySelectorAll('.col');
-//     cols.forEach((col) => {
-//         col.addEventListener('mouseover', () => {
-//             col.style.backgroundColor = "black"
-//         })
-//     })
-// }
-
-// function rainbowDraw() {
-//     x  = Math.floor(Math.random() * 256);
-//     y  = Math.floor(Math.random() * 256);
-//     z  = Math.floor(Math.random() * 256);
-//     const cols = document.querySelectorAll('.col');
-//     cols.forEach((col) => {
-//         col.addEventListener('mouseover', () => {
-//             col.style.backgroundColor = `rgb(${x}, ${y}, ${z})`
-//         })
-//     })
-// }
-
-
-
-
-
-
-
 
