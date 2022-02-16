@@ -1,15 +1,8 @@
 const container = document.querySelector('.container');
 
-// let size = () => {
-//     sizeBtn = document.querySelector('#sizeBtn')
-//     promptSize = prompt('what size?')
-//     // createGrid(promptSize)
-//     sizeBtn.addEventListener('click', createGrid(promptSize))
-// }
-
-// size()
 function size() {
    sizePrompt = prompt('What size would you like?');
+   deleteGrid()
    createGrid(sizePrompt)
    draw();
     
@@ -28,15 +21,19 @@ function createGrid(gridSize) {
             // cols.textContent = 'cols';
             rows.appendChild(cols);
     }
-}
-}
+}};
 
+function deleteGrid() {
+    const rows = document.querySelectorAll('.row')
+    const cols = document.querySelectorAll('.col');
+    cols.forEach((col) => {
+        col.remove()
+        })
 
-
-
-
-
-
+    rows.forEach((row) => {
+        row.remove();
+    })
+    }
 
 function draw() {
     const cols = document.querySelectorAll('.col');
@@ -46,8 +43,6 @@ function draw() {
         })
     })
 }
-
-
 
 function clearDrawing() {
     const cols = document.querySelectorAll('.col');

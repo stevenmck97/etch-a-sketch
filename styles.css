@@ -1,15 +1,39 @@
 .container {
     border: solid 1px;
+    min-height: 800px;
+    max-height: 800px;
+    max-width: 1000px;
+    padding: 0;
+    margin-top: 5px;
+    display: grid;
+    grid-template-rows:  repeat(autofit, 1fr) ;           /*auto-fit expands to fit inside the available columns/number specified*/
+    grid-template-columns: repeat(autofit, 1fr);     /*2nd number is how wide u want the column to be*/ 
+    grid-row-gap: .3em;
+    grid-column-gap: .3em;
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.section {
+    margin-left: 24%;
+    margin-right: 24%;
+}
+
+
 
 .col {
     padding: 0;
     margin: 0;
-    height: 30px;
-    width: 30px;
+    height: auto;
+    width: auto;
 }
 
 .row{
     padding: 0;
     margin: 0;
+    height: auto;
+    width: auto;
 }
