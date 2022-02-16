@@ -16,6 +16,11 @@ function size() {
 
 
 function createGrid(gridSize) {
+    if (gridSize <= 100 && gridSize >= 1) {
+        gridSize = gridSize
+    } else {
+        gridSize = 64
+    }
     for(let rows = 0; rows < gridSize; rows++) {
         const rows = document.createElement('div');
         rows.classList.add('row');
