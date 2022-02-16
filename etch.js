@@ -1,18 +1,14 @@
 const container = document.querySelector('.container');
 rainbowCount = 0;
-colCount = 0;
 
 (function defaultGrid() {
     createGrid(64); 
 })();
 
-
-
 function size() {
    sizePrompt = prompt('What size would you like?');
-   colCount = sizePrompt;
    deleteGrid();
-   createGrid(colCount); 
+   createGrid(sizePrompt); 
 }
 
 function createGrid(gridSize) {
@@ -21,28 +17,19 @@ function createGrid(gridSize) {
     } else {
         gridSize = 64
     }
-    console.log(gridSize)
-    console.log(colCount)
-
     for(let rows = 0; rows < gridSize; rows++) {
         const rows = document.createElement('div');
         rows.classList.add('row');
-        // rows.addEventListener('mouseover', rainbowDraw)
         container.appendChild(rows);
         
         for(let cols = 0; cols < gridSize; cols++) {
             const cols = document.createElement('div');
             cols.classList.add('col')
 
-            if(rainbowCount == 0) {
-                cols.addEventListener('mouseover', () => {
-                    cols.style.backgroundColor = "black"
-                })
-            } else {
-                cols.addEventListener('mouseover', () => {
-                    cols.style.backgroundColor = rainbowDraw()
-                })
-            }
+            cols.addEventListener('mouseover', () => {
+                cols.style.backgroundColor = "black"
+            })
+
             rows.appendChild(cols);
             
     }
@@ -68,17 +55,36 @@ function rainbowDraw() {
     return `rgb(${x}, ${y}, ${z})`  
 }
 
+function updateGrid() {
+    const cols = document.querySelectorAll('.col')
+    cols.forEach((col) => {
+        col.addEventListener('mouseover', () => {
+            col.style.backgroundColor = rainbowDraw()
+        })
+    })
+}
+
 function handleColor() {
     const rainbowBtn = document.querySelector('#rainbowBtn')
+    const cols = document.querySelectorAll('.col')
     if (rainbowCount === 0){
+        cols.forEach((col) => {
+            col.addEventListener('mouseover', () => {
+                col.style.backgroundColor = rainbowDraw()
+            })
+        })
         rainbowCount+=1
         rainbowBtn.style.backgroundColor= 'blue'
-    } else if(rainbowCount===1){
+    } 
+    else if(rainbowCount===1){
+        cols.forEach((col) => {
+            col.addEventListener('mouseover', () => {
+                col.style.backgroundColor = 'black'
+            })
+        })
         rainbowCount-=1
         rainbowBtn.style.backgroundColor= 'transparent'
-    }
-    // deleteGrid()
-    createGrid(colCount)
+    }  
 }
 
 function clearDrawing() {
