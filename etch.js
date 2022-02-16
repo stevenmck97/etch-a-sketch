@@ -18,7 +18,6 @@ function createGrid(gridSize) {
         for(let cols = 0; cols < gridSize; cols++) {
             const cols = document.createElement('div');
             cols.classList.add('col')
-            // cols.textContent = 'cols';
             rows.appendChild(cols);
     }
 }};
