@@ -1,5 +1,6 @@
 rainbowCount = 0;
 let color = 'black'
+let gridSize;
 
 const container = document.querySelector('.container');
 
@@ -7,10 +8,12 @@ const container = document.querySelector('.container');
     createGrid(64); 
 })();
 
-function size() {
-   sizePrompt = prompt('What size would you like?');
-   deleteGrid();
-   createGrid(sizePrompt); 
+const sizeSlide = document.querySelector('#sizeSlide');
+sizeSlide.onchange = (e) => sizeSlider(e.target.value);
+function sizeSlider(newSize){
+    gridSize = newSize;
+    deleteGrid();
+    createGrid(gridSize)
 }
 
 function createGrid(gridSize) {
